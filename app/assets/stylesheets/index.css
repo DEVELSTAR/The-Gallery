@@ -12,12 +12,20 @@
 	background-color: white;
 	border-radius: 20px;
 }
+.index-post a{
+	color: black;
+	margin-right: 2rem;
+}
 .index-post strong{
 	font-size: 30px;
 }
 .index-post .img{
 	width: 600px;
 	margin: auto;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	/*border: 2px solid red;*/
+}
+.index-username{
+	text-decoration: none;
+	color: black;
 }

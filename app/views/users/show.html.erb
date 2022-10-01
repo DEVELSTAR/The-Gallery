@@ -1,0 +1,16 @@
+<div class="show-users">
+	<div class="show-user">
+		<strong><%= @user.email %></strong>
+	</div>
+	<div class="row row-cols-1 row-cols-md-3 g-4">
+		<% @posts.each do |post| %>
+			<div class="col">
+			  <div class="card show-user-post">
+			  	<%= post.title %>
+			  	<%= image_tag post.image, class: "user-img" %>
+			  	<%= time_ago_in_words(post.created_at) %> ago
+			  </div>
+			</div>
+		<% end %>
+	</div>
+</div>

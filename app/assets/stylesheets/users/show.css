@@ -1,0 +1,23 @@
+.show-users{
+	/*border: 2px solid red;*/
+	width: 1300px;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 5rem;
+}
+.show-user{
+	/*border: 2px solid red;*/
+	margin-bottom: 2rem;
+}
+
+.show-user-post{
+	/*border: 2px solid red;*/
+	margin: auto;
+	width: 400px;
+}
+.user-img{
+	/*border: 2px solid red;*/
+	height: 300px;
+	width: 398px;
+	/*margin: auto;*/
+}
