@@ -1,0 +1,16 @@
+nav{
+	/*border: 2px solid red;*/
+	display: flex;
+	justify-content: space-evenly;
+	text-decoration: none;
+	padding-top: 2rem;
+	/*background-color: red;*/
+
+}
+nav a{
+	text-decoration: none;
+	font-size: 20px;
+	color: black;
+	/*border: 2px solid red;*/
+	margin-right: 2rem;
+}
