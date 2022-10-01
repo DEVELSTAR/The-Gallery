@@ -1,11 +1,18 @@
 <div class="index-posts">
 	<% @posts.each do |post| %>
 	<div class="index-post">
-		<strong><%= post.title%></strong><p><%=link_to post.user.email, user_path(post.user), class: "index-username" %></p>
+		<div class="home-avatar">
+			<% if post.user.avatar.attached? %>
+              <div><%= image_tag post.user.avatar, class: 'index-avatar' %></div>
+              <div class="index-username-div"><%=link_to post.user.username, user_path(post.user), class: "index-username" %></div>
+            <% end %>
+		</div>
 		<%= image_tag post.image, class: "img" %>
+		<div><strong><%= post.title%></strong></div>
+		<div>
         <a href="#"><i class="fa-sharp fa-solid fa-thumbs-up fa-2x"></i></a>
         <a href="#"><i class="fa-solid fa-comment fa-2x"></i></a>
-        <a href="#"><i class="fa-sharp fa-solid fa-share fa-2x"></i></a>
+        <a href="#"><i class="fa-sharp fa-solid fa-share fa-2x"></i></a></div>
 	</div>	
     <% end %>
 </div>

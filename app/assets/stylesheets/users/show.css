@@ -2,22 +2,45 @@
 	/*border: 2px solid red;*/
 	width: 1300px;
 	margin: auto;
-	text-align: center;
 	margin-bottom: 5rem;
 }
 .show-user{
 	/*border: 2px solid red;*/
 	margin-bottom: 2rem;
+	display: flex;
 }
-
+.show-user .show-avatar{
+	/*border: 2px solid red;*/
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+}
+.show-user .user-show-details{
+	/*border: 2px solid red;*/
+	justify-content: space-between;
+	margin-left: 5rem;
+	line-height: 3rem;
+	font-size: 24px;
+}
+.show-user .user-show-details .btn-edit{
+	text-decoration: none;
+	color: white;
+	padding: 0.3rem 3rem;
+	background-color: blue;
+}
+.show-user .user-show-details .btn-edit:hover{
+	padding: 0.3rem 4rem;
+	transition-duration: 1s;
+}
 .show-user-post{
 	/*border: 2px solid red;*/
 	margin: auto;
 	width: 400px;
+	text-align: center;
 }
 .user-img{
 	/*border: 2px solid red;*/
-	height: 300px;
+	height: 400px;
 	width: 398px;
 	/*margin: auto;*/
 }
