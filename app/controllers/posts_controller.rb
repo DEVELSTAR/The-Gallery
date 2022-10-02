@@ -15,6 +15,26 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def destroy
+	  @post = current_user.posts.find(params[:id])
+	  @post.destroy
+	  redirect_to request.referrer
+	end
+
+	def update
+	  @post = Post.find(params[:id])
+	  if @post.update(post_params)
+	    redirect_to root_path
+	    flash[:notice] = 'post was updated.'
+	  else
+	    render 'edit'
+	  end
+    end    
+
+    def edit
+      @post = Post.find(params[:id])
+    end
+
 	private
 
 	def post_params

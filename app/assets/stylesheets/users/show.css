@@ -44,3 +44,12 @@
 	width: 398px;
 	/*margin: auto;*/
 }
+.user-show-delete-div{
+	/*border: 2px solid red;*/
+	display: flex;
+	justify-content: space-around;
+}
+.user-show-delete{
+	text-decoration: none;
+	color: black;
+}

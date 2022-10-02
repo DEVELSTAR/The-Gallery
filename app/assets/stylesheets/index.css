@@ -13,9 +13,17 @@
 	border-radius: 20px;
 	/*display: flex;*/
 }
+.index-post-icons {
+	/*border: 2px solid red;*/
+	margin-bottom: 2rem;
+	display: flex;
+	justify-content: space-between;
+}
 .index-post-icons a{
+	/*border: 2px solid red;*/
 	color: black;
 	margin-left: 2rem;
+	margin-right: 2rem;
 }
 .index-post strong{
 	font-size: 30px;
@@ -50,4 +58,14 @@
 	height: 50px;
 	border-radius: 50%;
 	/*margin-right: 1rem;*/
+}
+.index-delete-div{
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 1rem;
+	font-size: 1.3rem;
+}
+.index-delete{
+	color: black;
+	text-decoration: none;
 }

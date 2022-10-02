@@ -8,11 +8,18 @@
             <% end %>
 		</div>
 		<a href="<%= post_path(post) %>"><%= image_tag post.image, class: "img" %></a>
-		<div><strong><%= post.title%></strong></div>
 		<div class="index-post-icons">
-        <a href="#"><i class="fa-sharp fa-solid fa-thumbs-up fa-2x"></i></a>
-        <a href="<%= post_path(post) %>"><i class="fa-solid fa-comment fa-2x"></i></a>
-        <a href="#"><i class="fa-sharp fa-solid fa-share fa-2x"></i></a></div>
+			<div><strong><%= post.title %></strong></div>
+		    <div><a href="#"><i class="fa-sharp fa-solid fa-thumbs-up fa-2x"></i></a></div>
+		</div>
+<!-- 		<div class="index-post-icons">
+		  <a href="#"><i class="fa-sharp fa-solid fa-thumbs-up fa-2x"></i></a>
+        </div> -->
+	      <div class="index-delete-div">
+	        <%= link_to "Edit", edit_post_path(post), class: "index-delete" %>
+	        <%= time_ago_in_words(post.created_at) %> ago
+	      	<%= link_to "Delete", post, data: {turbo_method: :delete}, class: "index-delete" %>
+	      </div>
 	</div>	
     <% end %>
 </div>

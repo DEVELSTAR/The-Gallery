@@ -20,7 +20,13 @@
 			  <div class="card show-user-post">
 			  	<%= post.title %>
 			  	<%= image_tag post.image, class: "user-img" %>
-			  	<%= time_ago_in_words(post.created_at) %> ago
+			  	<% if current_user == post.user  %>
+			      <div class="user-show-delete-div">
+			        <%= link_to "Edit", edit_post_path(post), class: "user-show-delete" %>
+			        <%= time_ago_in_words(post.created_at) %> ago
+			      	<%= link_to "Delete", post, data: {turbo_method: :delete}, class: "user-show-delete" %>
+			      </div>
+			  	<% end %>
 			  </div>
 			</div>
 		<% end %>

@@ -54,20 +54,24 @@
 	height: 40px;
 	border-radius: 50%;
 }
+.comment-time{
+	margin-left: 3rem;
+	color: black;
+	text-decoration: none;
+}
+.comment-username{
+	margin-left: 0.3rem;
+}
 .show-comment-form{
 	/*border-top: 2px solid red;*/
 	position: sticky;
 	height: 4%;
 	padding-top: 10px;
-}
-.show-comment-form input{
-	border: 2px solid grey;
-
+	border: none;
 }
 .show-comment-form .body{
   width: 75%;
   border-color: transparent;
-  border: none;
 }
 .show-comment-form .btn{
   border: none;
