@@ -28,10 +28,6 @@
 	padding: 0.3rem 3rem;
 	background-color: blue;
 }
-.show-user .user-show-details .btn-edit:hover{
-	padding: 0.3rem 4rem;
-	transition-duration: 1s;
-}
 .show-user-post{
 	/*border: 2px solid red;*/
 	margin: auto;
@@ -52,4 +48,11 @@
 .user-show-delete{
 	text-decoration: none;
 	color: black;
+}
+.user-show-buttons{
+	/*border: 2px solid red;*/
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+	min-width: 500px;
 }

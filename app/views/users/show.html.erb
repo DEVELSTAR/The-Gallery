@@ -6,12 +6,27 @@
             <% end %>
 		</div>
 		<div class="user-show-details">
+			<div class="user-show-buttons">
+
+		        <div><%= @user.followers.count %> Followers</div>
+		        <div><%= @user.followees.count %> Following</div>
+		        <div><%=link_to "Edit", edit_user_path, class: "btn-edit" if current_user == @user %></div>
+		        <div>
+			        <% if current_user != @user %>
+				        <% if current_user.followees.include?(@user) %>
+				            <h5><%= button_to "Unfollow", unfollow_user_path(@user), method: "POST", class: "follow" %></h5>
+				        <% else %>
+				            <h5><%= button_to "Follow", follow_user_path(@user), method: "POST", class: "follow" %></h5>
+				        <% end %>
+			        <% end %>
+		        </div>
+            </div>
+
 			<div><%= @user.username %></div>
 			<div><%= @user.name %></div>
 			<div><%= @user.email %></div>
 			<div><%= @user.website %></div>
 			<div><%= @user.bio %></div>
-			<div><%=link_to "Edit", edit_user_path, class: "btn-edit" if current_user == @user %></div>
 		</div>
 	</div>
 	<div class="row row-cols-1 row-cols-md-3 g-4">
@@ -19,14 +34,12 @@
 			<div class="col">
 			  <div class="card show-user-post">
 			  	<%= post.title %>
-			  	<%= image_tag post.image, class: "user-img" %>
-			  	<% if current_user == post.user  %>
+			  	<a href="<%= post_path(post) %>"><%= image_tag post.image, class: "user-img" %></a>
 			      <div class="user-show-delete-div">
-			        <%= link_to "Edit", edit_post_path(post), class: "user-show-delete" %>
+			        <%= link_to "Edit", edit_post_path(post), class: "user-show-delete" if current_user == post.user %>
 			        <%= time_ago_in_words(post.created_at) %> ago
-			      	<%= link_to "Delete", post, data: {turbo_method: :delete}, class: "user-show-delete" %>
+			      	<%= link_to "Delete", post, data: {turbo_method: :delete}, class: "user-show-delete" if current_user == post.user %>
 			      </div>
-			  	<% end %>
 			  </div>
 			</div>
 		<% end %>
