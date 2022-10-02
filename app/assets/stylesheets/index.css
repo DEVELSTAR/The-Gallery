@@ -15,7 +15,6 @@
 }
 .index-post-icons {
 	/*border: 2px solid red;*/
-	margin-bottom: 2rem;
 	display: flex;
 	justify-content: space-between;
 }
@@ -68,4 +67,10 @@
 .index-delete{
 	color: black;
 	text-decoration: none;
+}
+
+.index-likes-count{
+	/*border: 2px solid red;*/
+	margin-left: 2rem;
+	font-size: 1.3rem;
 }
