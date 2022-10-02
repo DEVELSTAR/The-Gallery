@@ -13,7 +13,7 @@
 	border-radius: 20px;
 	/*display: flex;*/
 }
-.index-post a{
+.index-post-icons a{
 	color: black;
 	margin-left: 2rem;
 }
@@ -24,7 +24,7 @@
 }
 .index-post .img{
 	width: 600px;
-	margin: auto;
+	/*margin: auto;*/
 	margin-bottom: 10px;
 	/*border: 2px solid red;*/
 }
@@ -36,6 +36,8 @@
 .index-username{
 	text-decoration: none;
 	font-size: 20px;
+	color: black;
+	margin-left: 2rem;
 }
 .home-avatar{
 	padding: 1rem 2rem;
