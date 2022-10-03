@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :following_users, foreign_key: :followee_id, class_name: 'Follow'
   has_many :followers, through: :following_users
 
-  validates :user_name, uniqueness: { case_sensitive: true }
-  validates :user_name, presence: true
+  validates :username, uniqueness: { case_sensitive: true }
+  validates :username, presence: true
   
 end

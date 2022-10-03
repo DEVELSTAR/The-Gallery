@@ -18,12 +18,7 @@
 	display: flex;
 	justify-content: space-between;
 }
-.index-post-icons a{
-	/*border: 2px solid red;*/
-	color: black;
-	margin-left: 2rem;
-	margin-right: 2rem;
-}
+
 .index-post strong{
 	font-size: 30px;
 	margin-left: 2rem;
@@ -60,9 +55,11 @@
 }
 .index-delete-div{
 	display: flex;
-	justify-content: space-around;
-	padding-bottom: 1rem;
+	justify-content: space-between;
+	padding-bottom: .5rem;
 	font-size: 1.3rem;
+	/*border: 2px solid red;*/
+	margin: 0rem 2rem 0rem 2rem;
 }
 .index-delete{
 	color: black;
@@ -73,4 +70,18 @@
 	/*border: 2px solid red;*/
 	margin-left: 2rem;
 	font-size: 1.3rem;
+	margin-bottom: 2rem;
+}
+.home-likes{
+	/*border: 2px solid red;*/
+	margin-right: 2rem;
+}
+.home-like{
+	background-color: white;
+	border: none;
+}
+.home-unlike{
+	background-color: white;
+	border: none;
+	color: red;
 }
