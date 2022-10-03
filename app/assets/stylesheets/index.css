@@ -2,7 +2,8 @@
 	/*border: 2px solid red;*/
 	width: 600px;
 	margin-bottom: 10%;
-	margin: auto;
+	/*display: flex;*/
+	/*margin: auto;*/
 }
 .index-post{
 	/*border: 2px solid grey;*/
@@ -55,15 +56,16 @@
 }
 .index-delete-div{
 	display: flex;
-	justify-content: space-between;
-	padding-bottom: .5rem;
+	justify-content: space-around;
 	font-size: 1.3rem;
 	/*border: 2px solid red;*/
-	margin: 0rem 2rem 0rem 2rem;
+	margin: 0rem -3rem 0rem -3rem;
+	padding-bottom: 0.4rem;
 }
 .index-delete{
 	color: black;
 	text-decoration: none;
+	/*border: 2px solid red;*/
 }
 
 .index-likes-count{
@@ -84,4 +86,53 @@
 	background-color: white;
 	border: none;
 	color: red;
+}
+.home-index{
+	display: flex;
+	/*border: 2px solid red;*/
+	justify-content: space-between;
+	width: 1200px;
+	margin: auto;
+}
+.index-users{
+	/*border: 2px solid red;*/
+	margin-top: 1rem;
+	padding: 0;
+}
+.home-index-user{
+	padding: 1rem 2rem;
+	/*border: 2px solid red;*/
+	padding: 1rem 0rem 1rem 0rem;
+	display: flex;
+	justify-content: space-between;
+}
+.index-users p{
+	/*border: 2px solid red;*/
+	margin-left: 2rem;
+	margin-top: 1rem;
+	color: grey;
+}
+.index-user-div{
+	/*border: 2px solid red;*/
+	display: flex;
+}
+.index-user-edit{
+	/*border: 2px solid red;*/
+	font-size: 1.4rem;
+	text-decoration: none;
+	margin-right: .2rem;
+	color: blue;
+	margin-top: 1rem;
+}
+.index-user-div1{
+	display: flex;
+	/*border: 2px solid red;*/
+	width: 300px;
+}
+.index-follow{
+	/*border: 2px solid red;*/
+	margin-top: 0.5rem;
+	background-color: inherit;
+	border: none;
+	color: blue;
 }

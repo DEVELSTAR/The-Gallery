@@ -1,50 +1,88 @@
-<div class="index-posts">
-	<% @posts.each do |post| %>
-	<div class="index-post">
-		<div class="home-avatar">
-			<% if post.user.avatar.attached? %>
-              <div><%= image_tag post.user.avatar, class: 'index-avatar' %></div>
-              <div class="index-username-div"><%=link_to post.user.username, user_path(post.user), class: "index-username" %></div>
-            <% end %>
-		</div>
-		<a href="<%= post_path(post) %>"><%#= image_tag post.image, class: "img" %></a>
-		<div class="index-post-icons">
-			<div><strong>
-				<% post.title.to_s.split(' ').each do |word| %>
-			        <% if word.start_with?('#') %>
-			          <%= link_to word, search_path(query: word) %>
-			        <%else %>
-			          <%= word %>
-			        <%end %>
-			    <% end %>
-		    </strong></div>
-		    <div class="home-likes">
-		    	<% if user_signed_in? %>
-				    <% like = current_user.likes.find_by(post: post) %>
-				    <% if like.nil? %>
-				       <%= button_to "", likes_path, params: { like: {post_id: post.id}}, method: :post, class: "fa-sharp fa-solid fa-thumbs-up fa-2x home-like" %>  
-				    <% else %>
-				       <%= button_to "", like_path(like), method: :delete, class: "fa-sharp fa-solid fa-thumbs-up fa-2x home-unlike" %>
+<div class="home-index">
+	<div class="index-posts">
+		<% @posts.each do |post| %>
+		<div class="index-post">
+			<div class="home-avatar">
+				<% if post.user.avatar.attached? %>
+	              <div><%= image_tag post.user.avatar, class: 'index-avatar' %></div>
+	              <div class="index-username-div"><%=link_to post.user.username, user_path(post.user), class: "index-username" %></div>
+	            <% end %>
+			</div>
+			<a href="<%= post_path(post) %>"><%= image_tag post.image, class: "img" %></a>
+			<div class="index-post-icons">
+				<div><strong>
+					<% post.title.to_s.split(' ').each do |word| %>
+				        <% if word.start_with?('#') %>
+				          <%= link_to word, search_path(query: word) %>
+				        <%else %>
+				          <%= word %>
+				        <%end %>
 				    <% end %>
+			    </strong></div>
+			    <div class="home-likes">
+			    	<% if user_signed_in? %>
+					    <% like = current_user.likes.find_by(post: post) %>
+					    <% if like.nil? %>
+					       <%= button_to "", likes_path, params: { like: {post_id: post.id}}, method: :post, class: "fa-sharp fa-solid fa-thumbs-up fa-2x home-like" %>  
+					    <% else %>
+					       <%= button_to "", like_path(like), method: :delete, class: "fa-sharp fa-solid fa-thumbs-up fa-2x home-unlike" %>
+					    <% end %>
+			        <% end %>
+	        	</div>
+			</div>
+
+			<div class="index-likes-count">  
+				<%=  @sum = post.likes.count %>
+			  	<% if @sum > 1 %>
+			  	  <span>likes</span>
+			  	<% else %>
+			  	  <span>like</span>
+			  	<% end %>
+			  </div>
+
+		    <div class="index-delete-div">
+		      <%= link_to "Edit", edit_post_path(post), class: "index-delete" if current_user == post.user %>
+		      <%= time_ago_in_words(post.created_at) %> ago
+	          <%= link_to "Delete", post, data: {turbo_method: :delete}, class: "index-delete" if current_user == post.user %>
+		    </div>
+		</div>	
+	    <% end %>
+	</div>
+	<% if user_signed_in? %>
+	<div class="index-users">
+		<div class="home-index-user">
+			<div class="index-user-div">
+				<% if @my_account.avatar.attached? %>
+		              <div><%= image_tag @my_account.avatar, class: 'index-avatar' %></div>
+		              <div class="index-username-div"><%=link_to @my_account.username, user_path(@user), class: "index-username" %></div>
 		        <% end %>
-        	</div>
-		</div>
-
-		<div class="index-likes-count">  
-			<%=  @sum = post.likes.count %>
-		  	<% if @sum > 1 %>
-		  	  <span>likes</span>
-		  	<% else %>
-		  	  <span>like</span>
-		  	<% end %>
-		  </div>
-
-	    <div class="index-delete-div">
-	      <%= link_to "Edit", edit_post_path(post), class: "index-delete" %>
-	      <%= time_ago_in_words(post.created_at) %> ago
-          <%= link_to "Delete", post, data: {turbo_method: :delete}, class: "index-delete" %>
-	    </div>
-	</div>	
-    <% end %>
+	        </div>
+		    <div class="index-user-edit">
+		    	<div class="index-user-btns"><%=link_to "Edit", edit_user_path(@user), class: "index-user-edit" %></div>
+		    </div>
+        </div>
+        <p>Suggestions for you</p>
+		<% @user.each do |user| %>
+			<% if user != current_user %>
+			<div class="home-index-user">
+				<div class="index-user-div1">
+					<% if user.avatar.attached? %>
+		              <div><%= image_tag user.avatar, class: 'index-avatar' %></div>
+		              <div class="index-username-div"><%=link_to user.username, user_path(user), class: "index-username" %></div>
+		            <% end %>
+	            </div>
+	        	<div class="index-follow">
+			        <% if current_user != @user && user_signed_in? %>
+				        <% if current_user.followees.include?(user) %>
+				            <h5><%= button_to "Unfollow", unfollow_user_path(user), method: "POST", class: "index-follow" %></h5>
+				        <% else %>
+				            <h5><%= button_to "Follow", follow_user_path(user), method: "POST", class: "index-follow" %></h5>
+				        <% end %>
+			        <% end %>
+		        </div>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+	<% end %>
 </div>
-
