@@ -21,4 +21,5 @@ class Post < ApplicationRecord
   has_many :hash_tags, through: :post_hash_tags
 # 
 
+  validates :image, presence: true
 end

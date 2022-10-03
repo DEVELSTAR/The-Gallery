@@ -54,11 +54,11 @@
 			<div class="index-user-div">
 				<% if @my_account.avatar.attached? %>
 		              <div><%= image_tag @my_account.avatar, class: 'index-avatar' %></div>
-		              <div class="index-username-div"><%=link_to @my_account.username, user_path(@user), class: "index-username" %></div>
+		              <div class="index-username-div"><%=link_to @my_account.username, user_path(@my_account), class: "index-username" %></div>
 		        <% end %>
 	        </div>
 		    <div class="index-user-edit">
-		    	<div class="index-user-btns"><%=link_to "Edit", edit_user_path(@user), class: "index-user-edit" %></div>
+		    	<div class="index-user-btns"><%=link_to "Edit", edit_user_path(@my_account), class: "index-user-edit" %></div>
 		    </div>
         </div>
         <p>Suggestions for you</p>
