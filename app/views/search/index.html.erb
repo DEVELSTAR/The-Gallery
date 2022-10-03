@@ -1,0 +1,22 @@
+<div class="search-page">
+  <% if @posts.exists? %>
+    <h1>Top Posts</h1>
+  <% else %>
+    <h1>Oop! No matching posts ...</h1>
+  <% end %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @posts.each do |post| %>
+      <div class="col">
+        <div class="card show-user-post">
+          <%= post.title %>
+          <a href="<%= post_path(post) %>"><%= image_tag post.image, class: "user-img" %></a>
+            <div class="user-show-delete-div">
+              <%= link_to "Edit", edit_post_path(post), class: "user-show-delete" if current_user == post.user %>
+              <%= time_ago_in_words(post.created_at) %> ago
+              <%= link_to "Delete", post, data: {turbo_method: :delete}, class: "user-show-delete" if current_user == post.user %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -9,7 +9,15 @@
 		</div>
 		<a href="<%= post_path(post) %>"><%#= image_tag post.image, class: "img" %></a>
 		<div class="index-post-icons">
-			<div><strong><%= post.title %></strong></div>
+			<div><strong>
+				<% post.title.to_s.split(' ').each do |word| %>
+			        <% if word.start_with?('#') %>
+			          <%= link_to word, search_path(query: word) %>
+			        <%else %>
+			          <%= word %>
+			        <%end %>
+			    <% end %>
+		    </strong></div>
 		    <div class="home-likes">
 		    	<% if user_signed_in? %>
 				    <% like = current_user.likes.find_by(post: post) %>
