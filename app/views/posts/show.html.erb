@@ -9,7 +9,8 @@
 			<% if @post.user.avatar.attached? %>
               <div><%= image_tag @post.user.avatar, class: 'show-post-avatar' %></div>
               <div class="show-post-username-div"><%=link_to @post.user.username, user_path(@post.user), class: "show-post-username" %></div>
-            <% end %>
+      <% end %>
+  <%= social_share_button_tag(@post.title) %>       
 		</div>
 		<div class="div22">
 			<p>"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish</p>
