@@ -74,3 +74,5 @@ end
 gem 'devise'
 
 gem 'social-share-button'
+
+gem "pagy"

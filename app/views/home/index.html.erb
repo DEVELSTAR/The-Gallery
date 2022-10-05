@@ -1,53 +1,5 @@
 <div class="home-index">
-	<div class="index-posts">
-		<% @posts.each do |post| %>
-		<div class="index-post">
-			<div class="home-avatar">
-				<% if post.user.avatar.attached? %>
-	              <div><%= image_tag post.user.avatar, class: 'index-avatar' %></div>
-	              <div class="index-username-div"><%=link_to post.user.username, user_path(post.user), class: "index-username" %></div>
-	            <% end %>
-			</div>
-			<a href="<%= post_path(post) %>"><%= image_tag post.image, class: "img" %></a>
-			<div class="index-post-icons">
-				<div><strong>
-					<% post.title.to_s.split(' ').each do |word| %>
-				        <% if word.start_with?('#') %>
-				          <%= link_to word, search_path(query: word) %>
-				        <%else %>
-				          <%= word %>
-				        <%end %>
-				    <% end %>
-			    </strong></div>
-			    <div class="home-likes">
-			    	<% if user_signed_in? %>
-					    <% like = current_user.likes.find_by(post: post) %>
-					    <% if like.nil? %>
-					       <%= button_to "", likes_path, params: { like: {post_id: post.id}}, method: :post, class: "fa-sharp fa-solid fa-thumbs-up fa-2x home-like" %>  
-					    <% else %>
-					       <%= button_to "", like_path(like), method: :delete, class: "fa-sharp fa-solid fa-thumbs-up fa-2x home-unlike" %>
-					    <% end %>
-			        <% end %>
-	        	</div>
-			</div>
-
-			<div class="index-likes-count">  
-				<%=  @sum = post.likes.count %>
-			  	<% if @sum > 1 %>
-			  	  <span>likes</span>
-			  	<% else %>
-			  	  <span>like</span>
-			  	<% end %>
-			  </div>
-
-		    <div class="index-delete-div">
-		      <%= link_to "Edit", edit_post_path(post), class: "index-delete" if current_user == post.user %>
-		      <%= time_ago_in_words(post.created_at) %> ago
-	          <%= link_to "Delete", post, data: {turbo_method: :delete}, class: "index-delete" if current_user == post.user %>
-		    </div>
-		</div>	
-	    <% end %>
-	</div>
+	<%= render 'post' %>
 	<% if user_signed_in? %>
 	<div class="index-users">
 		<div class="home-index-user">
@@ -86,3 +38,4 @@
 	</div>
 	<% end %>
 </div>
+
